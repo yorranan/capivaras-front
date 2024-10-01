@@ -1,1 +1,48 @@
-<p>notes works!</p>
+<form [formGroup]="noteForm" (ngSubmit)="submit()">
+  <div>
+    <label for="capybaraId">Capivara:</label>
+    <input id="capybaraId" type="number" formControlName="capybaraId" />
+    <div
+      *ngIf="
+        noteForm.get('capybaraId')?.invalid &&
+        noteForm.get('capybaraId')?.touched
+      "
+    >
+      Capivara ID é obrigatório.
+    </div>
+  </div>
+
+  <div>
+    <label for="noteObservations">Observações:</label>
+    <textarea
+      id="noteObservations"
+      formControlName="noteObservations"
+    ></textarea>
+    <div
+      *ngIf="
+        noteForm.get('noteObservations')?.invalid &&
+        noteForm.get('noteObservations')?.touched
+      "
+    >
+      Observações são obrigatórias.
+    </div>
+  </div>
+
+  <div>
+    <label for="noteComportament">Comportamento:</label>
+    <textarea
+      id="noteComportament"
+      formControlName="noteComportament"
+    ></textarea>
+    <div
+      *ngIf="
+        noteForm.get('noteComportament')?.invalid &&
+        noteForm.get('noteComportament')?.touched
+      "
+    >
+      Comportamento é obrigatório.
+    </div>
+  </div>
+
+  <button type="submit">Enviar</button>
+</form>
