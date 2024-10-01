@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-habitats',
   standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './habitats.component.html',
   styleUrls: ['./habitats.component.scss'],
-  imports: [CommonModule, ReactiveFormsModule]
 })
 export class HabitatsComponent {
   habitatForm: FormGroup;

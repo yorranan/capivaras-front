@@ -1,1 +1,68 @@
-<p>capybaras works!</p>
+<form [formGroup]="capybaraForm" (ngSubmit)="submit()">
+  <div>
+    <label for="capybaraName">Nome do habitat:</label>
+    <input id="capybaraName" formControlName="capybaraName" />
+    <div
+      *ngIf="
+        capybaraForm.get('capybaraName')?.invalid &&
+        capybaraForm.get('capybaraName')?.touched
+      "
+    >
+      Nome da capivara não foi preenchida.
+    </div>
+  </div>
+  <div></div>
+  <label for="capybaraAge">Idade</label>
+  <input type="number" id="capybaraAge" formControlName="capybaraName" />
+  <div
+    *ngIf="
+      capybaraForm.get('capybaraAge')?.invalid &&
+      capybaraForm.get('capybaraAge')?.touched
+    "
+  >
+    Idade da capivara não foi preenchida.
+  </div>
+  <div>
+    <div>
+      <label for="capybaraWeight">Peso</label>
+      <input type="number" id="capybaraWeight" formControlName="capybaraWeight" />
+      <div
+        *ngIf="
+          capybaraForm.get('capybaraWeight')?.invalid &&
+          capybaraForm.get('capybaraWeight')?.touched
+        "
+      >
+        Peso não foi preenchido.
+      </div>
+    </div>
+    <div>
+      <label for="capybaraHealthStatus">Estado de Saúde</label>
+      <select id="capybaraHealthStatus" formControlName="capybaraHealthStatus">
+        <option value="HEALTHY">Saudável</option>
+        <option value="NEED_CARE">Precisa de Cuidados</option>
+        <option value="DIED">Morto</option>
+      </select>
+      <div
+        *ngIf="
+          capybaraForm.get('capybaraHealthStatus')?.invalid &&
+          capybaraForm.get('capybaraHealthStatus')?.touched
+        "
+      >
+        Estado de saúde não foi preenchido.
+      </div>
+    </div>
+    <div>
+      <label for="capybaraHabitat">Habitat</label>
+      <input type="number" id="capybaraHabitat" formControlName="capybaraHabitat" />
+      <div
+        *ngIf="
+          capybaraForm.get('capybaraHabitat')?.invalid &&
+          capybaraForm.get('capybaraHabitat')?.touched
+        "
+      >
+        Habitat não foi preenchido.
+      </div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="capybaraForm.invalid">Submit</button>
+</form>
