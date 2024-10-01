@@ -1,1 +1,23 @@
-<p>habitats works!</p>
+<form [formGroup]="habitatForm" (ngSubmit)="submit()">
+  <div>
+    <label for="habitatName">Nome do habitat:</label>
+    <input id="habitatName" formControlName="habitatName" />
+    <div
+    *ngIf="habitatForm.get('habitatName')?.invalid && habitatForm.get('habitatName')?.touched"
+    >
+      Nome do habitat não foi preenchido.
+    </div>
+  </div>
+
+  <div>
+    <label for="habitatSwitch">Ativo:</label>
+    <input id="habitatSwitch" type="checkbox" formControlName="habitatSwitch" />
+    <div
+      *ngIf="habitatForm.get('habitatSwitch')?.invalid && habitatForm.get('habitatSwitch')?.touched"
+    >
+      Habitat Switch is required.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="habitatForm.invalid">Submit</button>
+</form>
